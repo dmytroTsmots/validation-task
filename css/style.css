@@ -1,0 +1,30 @@
+* {
+	box-sizing: border-box;
+}
+body {
+	margin: 0;
+	padding: 0;
+
+}
+form {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	color: #346392;
+	flex-direction: column;
+	font-family: Georgia, sans-serif;
+}
+.red {
+	border: 5px solid red;
+	border-radius: 5px;
+}
+.green {
+	border: 5px solid green;
+	border-radius: 5px;
+}
+input {
+	margin: 5px;
+	width: 200px;
+  	padding: 5px;
+}
