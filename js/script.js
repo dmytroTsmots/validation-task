@@ -3,7 +3,7 @@ function createForm() {
   var validationForm = document.createElement("form");
   validationForm.setAttribute("name", "login");
   validationForm.setAttribute("action", "https://www.google.com.ua");
-  validationForm.setAttribute("onsubmit", "return checkMe()");
+  validationForm.setAttribute("onsubmit", "return checkMe(this)");
   document.body.appendChild(validationForm);
 
   var inputAge = document.createElement("input");
@@ -49,19 +49,21 @@ function createForm() {
   validationForm.appendChild(inputBtn);
 
 }
-
+  
 createForm();
-
 
 function validateAge() {
   var checkAgeValue = document.getElementById("age").value;
+  var age = document.getElementById("age");
 
-  if (isNaN(checkAgeValue) || parseInt(checkAgeValue) < 0 || checkAgeValue.match("e") || checkAgeValue === "" || checkAgeValue === "0") {
-    document.getElementById("age").classList.add("red");
+
+  if (isNaN(checkAgeValue) || parseInt(checkAgeValue) < 0 || checkAgeValue.match("e") || checkAgeValue === "" || checkAgeValue === "0" || checkAgeValue.match(" ")) {
+    age.classList.remove("green");
+    age.classList.add("red");
     alert("You should enter only a number");
     return false;
   } else {
-    document.getElementById("age").classList.add("green");
+    age.classList.add("green");
     return true;
   }
 }
@@ -73,6 +75,7 @@ function validateName() {
     document.getElementById("name").classList.add("green");
     return true;
   } else {
+    document.getElementById("name").classList.remove("green");
     document.getElementById("name").classList.add("red");
     alert("Your name should start with user_");
     return false;
@@ -87,6 +90,7 @@ function validateDate() {
     document.getElementById("date").classList.add("green");
     return true;
   } else {
+    document.getElementById("date").classList.remove("green");
     document.getElementById("date").classList.add("red");
     alert("Yoy should enter current date in format dd/mm/yyyy");
     return false;
